@@ -11,7 +11,7 @@ int main() {
     const int screenHeight = 600;
     InitWindow(screenWidth, screenHeight, "Mein erstes 2D C++ Spiel");
 
-    Player spieler(screenWidth/ 2.0f, screenHeight / 2.0f, 5.0f);
+    Player spieler(screenWidth/ 2.0f, screenHeight / 2.0f, 250.0f);
     Enemy gegner(100.0f,100.0f, 2.0f);
 
     SetTargetFPS(60);
@@ -33,7 +33,8 @@ int main() {
         if (IsKeyDown(KEY_A)) moveX -= 1.0f;
         if (IsKeyDown(KEY_D)) moveX += 1.0f;
 
-        spieler.move(moveX, moveY);
+        float dt = GetFrameTime();
+        spieler.move(moveX * dt, moveY *dt);
         for (Coin &c : coinListe)
         {
             if (CheckCollisionCircles(

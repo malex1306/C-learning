@@ -19,6 +19,8 @@ add_executable(untitled
         Player.h
         Coin.cpp
         Coin.h
+        Enemy.cpp
+        Enemy.h
 )
 
 # 3. Wir verlinken direkt gegen die Datei
